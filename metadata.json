@@ -1,8 +1,0 @@
-{
-  "name": "Solutions Consulting Sarl",
-  "description": "A premium, futuristic, and luxurious corporate website for Solutions Consulting Sarl, featuring sapphire and black aesthetics with elegant animations.",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
-}
