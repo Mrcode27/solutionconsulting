@@ -23,11 +23,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Accueil', path: '/' },
-    { name: 'À Propos', path: '/about' },
     { name: 'Services', path: '/services' },
-    { name: 'Méthodologie', path: '/methodology' },
+    { name: 'À Propos', path: '/about' },
+    { name: 'Représentation', path: '/methodology' },
     { name: 'Pourquoi Nous', path: '/why-us' },
-    // "Contact" link removed as requested to reduce crowding and redundancy with "Consultation" button
   ];
 
   return (
@@ -148,28 +147,28 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-[#D4AF37] text-xs font-black tracking-[0.3em] uppercase mb-10">Maison</h4>
+            <h4 className="text-[#D4AF37] text-xs font-black tracking-[0.3em] uppercase mb-10">Navigation</h4>
             <ul className="space-y-5 text-sm text-gray-400 font-light">
-              <li><Link to="/about" className="hover:text-white transition-colors">Notre Héritage</Link></li>
-              <li><Link to="/methodology" className="hover:text-white transition-colors">La Méthode</Link></li>
-              <li><Link to="/why-us" className="hover:text-white transition-colors">Pourquoi l'Elite</Link></li>
-              <li><Link to="/contact" className="hover:text-white transition-colors">Conciergerie</Link></li>
+              <li><Link to="/" className="hover:text-white transition-colors">Accueil</Link></li>
+              <li><Link to="/services" className="hover:text-white transition-colors">Services</Link></li>
+              <li><Link to="/methodology" className="hover:text-white transition-colors">Carrières</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-[#D4AF37] text-xs font-black tracking-[0.3em] uppercase mb-10">Contact</h4>
+            <h4 className="text-[#D4AF37] text-xs font-black tracking-[0.3em] uppercase mb-10">Coordonnées</h4>
             <ul className="space-y-5 text-sm text-gray-400 font-light">
-              <li className="flex items-center"><Phone className="w-4 h-4 mr-4 text-[#D4AF37]" /> +237 6XX XXX XXX</li>
-              <li className="flex items-center"><Mail className="w-4 h-4 mr-4 text-[#D4AF37]" /> elite@solutions-consulting.cm</li>
-              <li className="flex items-center"><MapPin className="w-4 h-4 mr-4 text-[#D4AF37]" /> Bonamoussadi, Douala</li>
+              <li className="flex items-center"><Phone className="w-4 h-4 mr-4 text-[#D4AF37]" /> [Numéro de téléphone]</li>
+              <li className="flex items-center"><Mail className="w-4 h-4 mr-4 text-[#D4AF37]" /> [Adresse email]</li>
+              <li className="flex items-center"><MapPin className="w-4 h-4 mr-4 text-[#D4AF37]" /> Douala, Cameroun</li>
             </ul>
           </div>
         </div>
         
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
           <p className="text-gray-600 text-[10px] uppercase tracking-[0.4em] font-bold">
-            © {new Date().getFullYear()} Solutions Consulting Sarl. Excellence et Discrétion Assurées.
+            © {new Date().getFullYear()} Solutions Consulting Sarl - RCCM : CM-DLA-03-2024-B13-OOO36
           </p>
           <div className="flex space-x-8 text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold">
             <a href="#" className="hover:text-[#D4AF37]">Mentions Légales</a>
