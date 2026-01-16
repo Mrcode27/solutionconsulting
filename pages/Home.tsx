@@ -15,12 +15,11 @@ const heroImages = [
 ];
 
 const partnerLogos = [
-  { name: "Finance Global", url: "https://cdn-icons-png.flaticon.com/512/3616/3616335.png" },
-  { name: "Empire Corp", url: "https://cdn-icons-png.flaticon.com/512/3616/3616338.png" },
-  { name: "Stratégie Plus", url: "https://cdn-icons-png.flaticon.com/512/3616/3616340.png" },
-  { name: "Luxury Invest", url: "https://cdn-icons-png.flaticon.com/512/3616/3616345.png" },
-  { name: "Tech Elite", url: "https://cdn-icons-png.flaticon.com/512/3616/3616350.png" },
-  { name: "Africa Reach", url: "https://cdn-icons-png.flaticon.com/512/3616/3616352.png" },
+  { name: "Finance Global", url: "../images/partner1.jpeg" },
+  { name: "Empire Corp", url: "../images/partner2.jpeg" },
+  { name: "Stratégie Plus", url: "../images/partner3.jpeg" },
+  { name: "Luxury Invest", url: "../images/partner4.jpeg" },
+  
 ];
 
 const testimonials = [
@@ -142,27 +141,17 @@ const Home: React.FC = () => {
               <span className="text-[#D4AF37] font-bold tracking-[0.3em] uppercase text-xs">Depuis 2015</span>
             </motion.div>
 
-            <h1 className="text-6xl md:text-9xl font-serif font-bold text-white mb-10 leading-[0.95] tracking-tighter">
-              {titleWords.map((word, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1.2, delay: 0.5 + i * 0.15, ease: "easeOut" }}
-                  className={`inline-block mr-6 ${i >= 3 ? 'gold-text-gradient' : ''}`}
-                >
-                  {word}
-                </motion.span>
-              ))}
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white mb-10 leading-tight tracking-tighter">
+              Propulsez votre PME vers de <span className="gold-text-gradient italic">nouveaux horizons</span>.
             </h1>
 
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 2, delay: 1.8 }}
-              className="text-xl md:text-3xl text-gray-300 mb-14 leading-tight max-w-3xl font-light"
+              className="text-lg md:text-2xl text-gray-300 mb-14 leading-relaxed max-w-4xl font-light"
             >
-              Solutions Consulting Sarl orchestre votre croissance avec la précision de l'orfèvre et l'audace des visionnaires.
+              Votre partenaire stratégique pour la croissance au Cameroun et en Afrique Francophone. Solutions Consulting Sarl est bien plus qu'un cabinet de conseil. Nous sommes le moteur de votre développement. De l'accompagnement stratégique à la levée de fonds, en passant par l'externalisation de vos forces commerciales et marketing, nous transformons vos défis en opportunités concrètes.
             </motion.p>
 
             <motion.div 
@@ -191,11 +180,10 @@ const Home: React.FC = () => {
       {/* Impact Figures Section */}
       <section className="py-24 bg-[#050505] relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-            <ImpactFigure number="250" suffix="+" label="Projets Stratégiques" />
-            <ImpactFigure number="50" suffix="M€" label="Fonds Levés" />
-            <ImpactFigure number="12" suffix="" label="Pays d'Intervention" />
-            <ImpactFigure number="98" suffix="%" label="Taux de Rétention" />
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-12">
+            <ImpactFigure number="10" suffix="" label="Années d'Expertise" />
+            <ImpactFigure number="30" suffix="+" label="PME Accompagnées" />
+            <ImpactFigure number="4" suffix="" label="Pôles d'Expertise" />
           </div>
         </div>
       </section>

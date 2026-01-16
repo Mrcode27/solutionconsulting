@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Scale, TrendingUp, Users, CheckCircle2, ShieldCheck, Zap, Globe, Briefcase } from 'lucide-react';
+import { Scale, TrendingUp, Users, CheckCircle2, Briefcase, BarChart3, Globe, DollarSign } from 'lucide-react';
 
-const ServiceSection = ({ icon, title, services, color, index }: { icon: any, title: string, services: string[], color: string, index: number }) => (
+const ServiceSection = ({ icon, title, description, services, color, index }: { icon: any, title: string, description: string, services: string[], color: string, index: number }) => (
   <motion.div 
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -21,7 +21,7 @@ const ServiceSection = ({ icon, title, services, color, index }: { icon: any, ti
         </div>
         <h2 className="text-4xl lg:text-5xl font-serif font-bold text-white mb-8 leading-tight">{title}</h2>
         <p className="text-gray-500 text-lg leading-relaxed font-light italic">
-          Une ingénierie de précision pour les mandats les plus exigeants de la sous-région.
+          {description}
         </p>
       </div>
       <div className="lg:w-2/3">
@@ -70,41 +70,59 @@ const Services: React.FC = () => {
           index={0}
           icon={<Scale />}
           color="gold"
-          title="Pôle Conseils & Assistance"
+          title="Accompagnement & Conseil Stratégique des PME"
+          description="Nous aidons les dirigeants de PME à sortir de l'opérationnel pour piloter leur stratégie."
           services={[
-            "Ingénierie Juridique et Fiscale",
-            "Accompagnement Stratégique M&A",
-            "Levée de Fonds Souveraine",
-            "Compliance & Normes OHADA",
-            "Management Capital Humain"
+            "Diagnostic organisationnel et restructuration",
+            "Élaboration de Business Plans bancables",
+            "Ingénierie juridique et fiscale (Conseil OHADA)",
+            "Stratégie de croissance et transformation digitale",
+            "Gestion du changement organisationnel"
           ]}
         />
 
         <ServiceSection 
           index={1}
-          icon={<TrendingUp />}
+          icon={<DollarSign />}
           color="blue"
-          title="Pôle Solutions Commerciales"
+          title="Recherche de Financements Extérieurs (Levée de Fonds)"
+          description="Accédez aux capitaux nécessaires pour changer d'échelle."
           services={[
-            "Intelligence de Marché B2B",
-            "Force de Vente Haute-Fidélité",
-            "Optimisation de Portefeuille CRM",
-            "Brokerage de Services Premium",
-            "Audit de Performance de Vitesse"
+            "Intermédiation financière auprès de banques locales et internationales",
+            "Préparation des dossiers d'investissement (Pitch Deck, Modélisation Financière)",
+            "Accès aux fonds de Capital-Investissement (Private Equity) et Business Angels",
+            "Structuration des tours de financement",
+            "Négociation des termes de financement"
           ]}
         />
 
         <ServiceSection 
           index={2}
-          icon={<Briefcase />}
+          icon={<BarChart3 />}
           color="gold"
-          title="Pôle Solutions Marketing"
+          title="Gestion Marketing à 360°"
+          description="Une visibilité maximale pour un impact réel."
           services={[
-            "Digital Growth Ecosystems",
-            "Consumer Behavior Insights",
-            "Branding d'Héritage & Prestige",
-            "Trade Marketing Expérientiel",
-            "Management de Réputation"
+            "Stratégie de marque (Branding) et Identité Visuelle",
+            "Marketing Digital & Social Media Management",
+            "Études de marché et tests de produits sur le terrain",
+            "Positionnement stratégique et communication",
+            "Campagnes marketing intégrées"
+          ]}
+        />
+
+        <ServiceSection 
+          index={3}
+          icon={<TrendingUp />}
+          color="blue"
+          title="Gestion Commerciale à 360° (Performance Commerciale)"
+          description="Nous ne nous contentons pas de conseiller, nous vendons pour vous."
+          services={[
+            "Externalisation de la force de vente (Sales Outsourcing)",
+            "Prospection terrain B2B et B2C",
+            "Mise en place de systèmes de suivi de performance (CRM)",
+            "Formation et encadrement des équipes commerciales",
+            "Développement de stratégies de vente et de partenariats"
           ]}
         />
       </div>

@@ -6,15 +6,16 @@ import { Mail, Phone, MapPin, Send, MessageSquare, Diamond, Star, ShieldCheck, M
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState({
     name: '',
-    email: '',
-    subject: 'Conseil Juridique & Fiscal',
+    company: '',
+    service: '',
+    budget: '',
     message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Mandat reçu. Un de nos conseillers seniors vous contactera via canal sécurisé sous 12h.');
-    setFormState({ name: '', email: '', subject: 'Conseil Juridique & Fiscal', message: '' });
+    alert('Audit gratuit demandé. Un de nos conseillers seniors vous contactera sous 12h pour fixer votre session de diagnostic.');
+    setFormState({ name: '', company: '', service: '', budget: '', message: '' });
   };
 
   return (
@@ -28,13 +29,13 @@ const Contact: React.FC = () => {
             animate={{ opacity: 1 }}
             className="text-[#D4AF37] font-bold tracking-[0.6em] uppercase text-[10px] mb-6 block"
           >
-            Ligne Directe Elite
+            Diagnostic Stratégique Gratuit
           </motion.span>
-          <h1 className="text-6xl md:text-9xl font-serif font-bold text-white mb-10 tracking-tighter">
-            Initiez la <span className="gold-text-gradient italic">Mutation.</span>
+          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-10 tracking-tighter">
+            Prêt à transformer votre <span className="gold-text-gradient italic">entreprise</span> ?
           </h1>
-          <p className="text-2xl text-gray-500 font-light max-w-2xl mx-auto italic">
-            Confidentialité garantie. Votre demande est traitée par notre cellule stratégique.
+          <p className="text-2xl text-gray-500 font-light max-w-3xl mx-auto italic">
+            Sollicitez votre premier diagnostic gratuit dès aujourd'hui. Confidentialité garantie. Votre demande est traitée par notre cellule stratégique.
           </p>
         </div>
 
@@ -46,9 +47,9 @@ const Contact: React.FC = () => {
               
               <div className="space-y-6">
                 {[
-                  { icon: <Phone />, label: "Canal Vocal", val: "+237 6XX XXX XXX" },
-                  { icon: <Mail />, label: "Cryptage Mail", val: "elite@solutions-consulting.cm" },
-                  { icon: <MapPin />, label: "Siège Global", val: "Bonamoussadi, Douala - Cameroun" }
+                  { icon: <Phone />, label: "Téléphone", val: "+237 673 347 832" },
+                  { icon: <Mail />, label: "Email", val: "info@solutionconsulting.biz" },
+                  { icon: <MapPin />, label: "Siège Social", val: "Douala, Cameroun" }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center p-8 bg-white/5 border border-white/5 hover:border-[#D4AF37]/30 transition-all duration-500 group">
                     <div className="w-14 h-14 bg-[#D4AF37]/5 border border-[#D4AF37]/20 flex items-center justify-center mr-8 group-hover:bg-[#D4AF37]/10 transition-colors">
@@ -90,7 +91,7 @@ const Contact: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-12 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="space-y-4">
-                    <label className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em]">Identité Complète</label>
+                    <label className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em]">Nom Complet *</label>
                     <input 
                       type="text" 
                       required
@@ -101,40 +102,59 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-4">
-                    <label className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em]">Email Institutionnel</label>
+                    <label className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em]">Entreprise *</label>
                     <input 
-                      type="email" 
+                      type="text" 
                       required
                       className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:outline-none focus:border-[#D4AF37] transition-all text-xl font-light"
-                      placeholder="direction@votre-groupe.com"
-                      value={formState.email}
-                      onChange={(e) => setFormState({...formState, email: e.target.value})}
+                      placeholder="Nom de votre entreprise"
+                      value={formState.company}
+                      onChange={(e) => setFormState({...formState, company: e.target.value})}
                     />
                   </div>
                 </div>
 
-                <div className="space-y-4">
-                  <label className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em]">Nature du Mandat</label>
-                  <select 
-                    className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:outline-none focus:border-[#D4AF37] transition-all text-xl font-light appearance-none cursor-pointer"
-                    value={formState.subject}
-                    onChange={(e) => setFormState({...formState, subject: e.target.value})}
-                  >
-                    <option className="bg-black">Conseil Juridique & Fiscal Luxe</option>
-                    <option className="bg-black">Levée de Fonds Souveraine</option>
-                    <option className="bg-black">Externalisation Commerciale Elite</option>
-                    <option className="bg-black">Marketing de Prestige</option>
-                    <option className="bg-black">Audit de Gouvernance</option>
-                  </select>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                  <div className="space-y-4">
+                    <label className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em]">Service Souhaité *</label>
+                    <select 
+                      className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:outline-none focus:border-[#D4AF37] transition-all text-xl font-light appearance-none cursor-pointer"
+                      value={formState.service}
+                      onChange={(e) => setFormState({...formState, service: e.target.value})}
+                      required
+                    >
+                      <option className="bg-black" value="">Sélectionner un service</option>
+                      <option className="bg-black" value="strategic">Accompagnement Stratégique</option>
+                      <option className="bg-black" value="fundraising">Levée de Fonds</option>
+                      <option className="bg-black" value="marketing">Gestion Marketing 360°</option>
+                      <option className="bg-black" value="commercial">Performance Commerciale</option>
+                      <option className="bg-black" value="representation">Représentation Étrangère</option>
+                      <option className="bg-black" value="other">Autre</option>
+                    </select>
+                  </div>
+                  <div className="space-y-4">
+                    <label className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em]">Budget Estimatif</label>
+                    <select 
+                      className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:outline-none focus:border-[#D4AF37] transition-all text-xl font-light appearance-none cursor-pointer"
+                      value={formState.budget}
+                      onChange={(e) => setFormState({...formState, budget: e.target.value})}
+                    >
+                      <option className="bg-black" value="">Sélectionner une fourchette</option>
+                      <option className="bg-black" value="small">Moins de 5M XAF</option>
+                      <option className="bg-black" value="medium">5 à 20M XAF</option>
+                      <option className="bg-black" value="large">20 à 100M XAF</option>
+                      <option className="bg-black" value="xlarge">Plus de 100M XAF</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div className="space-y-4">
-                  <label className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em]">Détails du Projet</label>
+                  <label className="text-[10px] font-black text-[#D4AF37] uppercase tracking-[0.3em]">Message / Brief *</label>
                   <textarea 
                     rows={4}
                     required
                     className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:outline-none focus:border-[#D4AF37] transition-all text-xl font-light"
-                    placeholder="Brief succinct de vos ambitions..."
+                    placeholder="Décrivez brièvement votre projet et vos enjeux..."
                     value={formState.message}
                     onChange={(e) => setFormState({...formState, message: e.target.value})}
                   ></textarea>
@@ -145,7 +165,7 @@ const Contact: React.FC = () => {
                     type="submit"
                     className="w-full py-8 bg-transparent border-2 border-[#D4AF37] text-[#D4AF37] font-black text-2xl uppercase tracking-[0.3em] transition-all duration-700 hover:bg-[#D4AF37] hover:text-black gold-glow flex items-center justify-center group"
                   >
-                    Envoyer le Mandat <Send className="ml-6 w-8 h-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500" />
+                    Demander l'Audit Gratuit <Send className="ml-6 w-8 h-8 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-500" />
                   </button>
                   <p className="text-center text-gray-600 text-[10px] mt-8 uppercase tracking-[0.4em] font-bold">
                     Toutes les données sont cryptées en AES-256

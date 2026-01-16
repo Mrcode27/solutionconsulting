@@ -8,33 +8,33 @@ const WhyUs: React.FC = () => {
   const advantages = [
     {
       icon: <Award />,
-      title: "Double Culture Strategique",
-      desc: "Fusion parfaite entre la finesse des marchés africains et la rigueur des standards financiers internationaux (Wall Street / City)."
+      title: "Ancrage Local & Vision Globale",
+      desc: "Une maîtrise parfaite de l'écosystème africain alliée aux standards de gestion internationaux."
     },
     {
       icon: <Rocket />,
-      title: "Obsession du Resultat",
-      desc: "Nous ne vendons pas du temps de consultant, mais de l'impact souverain. Notre rémunération de succès scelle notre engagement."
+      title: "Approche Axée sur les Résultats",
+      desc: "Nos rémunérations sont souvent indexées sur la réussite de vos projets (Success Fees). Votre succès est notre succès."
     },
     {
       icon: <Zap />,
-      title: "Synergie Technologique",
-      desc: "Déploiement d'outils de pointe (Big Data, Predictive Analysis) pour transformer chaque donnée en une opportunité commerciale."
+      title: "Écosystème Digital",
+      desc: "Synergie avec notre plateforme 'Solutions Services' pour une digitalisation rapide de vos offres de proximité."
     },
     {
       icon: <ShieldCheck />,
-      title: "Sceau de Confidentialité",
-      desc: "L'éthique d'un cabinet de conseil de haut vol : une discrétion absolue pour protéger vos actifs les plus précieux."
+      title: "Expertise OHADA",
+      desc: "Maîtrise approfondie de la législation OHADA et des régulations africaines pour une conformité garantie."
     },
     {
       icon: <Network />,
-      title: "Acces Privilege",
-      desc: "Portes ouvertes vers les cercles de décision CEMAC/UEMOA et les plateformes de financement institutionnelles mondiales."
+      title: "Réseau Panafricain",
+      desc: "Présence stratégique au Cameroun et réseau étendu en Afrique Centrale et de l'Ouest."
     },
     {
       icon: <Crown />,
-      title: "Signature d'Elite",
-      desc: "Rejoindre Solutions Consulting, c'est intégrer un écosystème de leaders qui façonnent le futur de l'Afrique."
+      title: "Partenaires de Confiance",
+      desc: "Plus de 30 PME accompagnées avec succès. Rejoignez notre écosystème de champions économiques africains."
     }
   ];
 
