@@ -15,10 +15,10 @@ const heroImages = [
 ];
 
 const partnerLogos = [
-  { name: "Finance Global", url: "/images/partner1.jpeg" },
-  { name: "Empire Corp", url: "/images/partner2.jpeg" },
-  { name: "Stratégie Plus", url: "/images/partner3.jpeg" },
-  { name: "Luxury Invest", url: "/images/partner4.jpeg" },
+  { name: "Finance Global", url: "./images/partner1.jpeg" },
+  { name: "Empire Corp", url: "./images/partner2.jpeg" },
+  { name: "Stratégie Plus", url: "./images/partner3.jpeg" },
+  { name: "Luxury Invest", url: "./images/partner4.jpeg" },
   
 ];
 
