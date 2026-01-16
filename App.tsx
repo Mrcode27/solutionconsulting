@@ -36,7 +36,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center group">
             {/* Logo updated: Star replaced with 'S', rotation reduced to 22deg, enhanced glow on hover */}
             <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B8860B] rounded-none flex items-center justify-center mr-4 gold-glow transition-all duration-500 group-hover:rotate-[22deg] group-hover:shadow-[0_0_35px_rgba(212,175,55,0.8)]">
-              <span className="text-black text-2xl font-serif font-black select-none">S</span>
+              <span className="text-black text-2xl font-serif font-black select-none"><img src="./images/logo.jpeg" alt="" /></span>
             </div>
             <div className="flex flex-col">
               <span className="text-xl font-serif font-bold tracking-widest text-white">
