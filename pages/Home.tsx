@@ -19,6 +19,7 @@ const partnerLogos = [
   { name: "Empire Corp", url: "/images/partner2.jpeg" },
   { name: "Stratégie Plus", url: "/images/partner3.jpeg" },
   { name: "Luxury Invest", url: "/images/partner4.jpeg" },
+  { name: "Luxury Invest", url: ""https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920"" },
   
 ];
 
