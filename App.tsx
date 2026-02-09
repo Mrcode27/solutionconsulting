@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { 
   Menu, X, ChevronRight, Briefcase, Users, PieChart, 
   Target, ShieldCheck, Globe, Mail, Phone, MapPin,
@@ -15,6 +15,7 @@ import Services from './pages/Services';
 import Methodology from './pages/Methodology';
 import WhyUs from './pages/WhyUs';
 import Contact from './pages/Contact';
+import Questionnaire from './pages/Questionnaire';
 
 // Components
 const Navbar = () => {
@@ -35,15 +36,15 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-24">
           <Link to="/" className="flex items-center group">
             {/* Logo updated: Star replaced with 'S', rotation reduced to 22deg, enhanced glow on hover */}
-            <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B8860B] rounded-none flex items-center justify-center mr-4 gold-glow transition-all duration-500 group-hover:rotate-[22deg] group-hover:shadow-[0_0_35px_rgba(212,175,55,0.8)]">
-              <span className="text-black text-2xl font-serif font-black select-none"><img src="./images/logo.jpeg" alt="" /></span>
+            <div className="w-52 h-15 bg-gradient-to-br from-[#D4AF37] to-[#B8860B] rounded-none flex items-center justify-center mr-5 gold-glow transition-all duration-500 group-hover:shadow-[0_0_35px_rgba(212,175,55,0.8)]">
+             <img src="/images/small-logo.png" alt="" className ="w-full h-full" />
             </div>
-            <div className="flex flex-col">
+            {/* <div className="flex flex-col">
               <span className="text-xl font-serif font-bold tracking-widest text-white">
-                SOLUTIONS <span className="text-[#D4AF37]">CONSULTING</span>
+                SOLUTIONS <br /> <span className="text-[#D4AF37]">CONSULTING</span>
               </span>
               <span className="text-[10px] tracking-[0.4em] uppercase text-gray-500 font-bold -mt-1">Excellence Panafricaine</span>
-            </div>
+            </div> */}
           </Link>
 
           {/* Desktop Links - Spacing adjusted for a cleaner look */}
@@ -126,12 +127,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-24">
           <div className="col-span-1 md:col-span-1">
              <Link to="/" className="flex items-center mb-8">
-              <div className="w-10 h-10 bg-[#D4AF37] rounded-none flex items-center justify-center mr-3">
-                <span className="text-black font-serif font-black text-sm">S</span>
+              <div className="w-14 h-10 bg-[#D4AF37] rounded-none flex items-center justify-center mr-3">
+                <img src="../images/favicon.png" className="w-full h-full" alt="Solution Consulting" />
               </div>
               <span className="text-xl font-serif font-bold tracking-widest">SOLUTIONS <span className="text-[#D4AF37]">CONSULTING</span></span>
             </Link>
-            <p className="text-gray-500 text-sm leading-relaxed mb-8 font-light">
+            <p className="text-gray-500 text-sm leading-relaxed mb-8 font-medium">
               L'excellence stratégique au service des leaders. Cabinet conseil de référence en Afrique Francophone pour les enjeux juridiques, commerciaux et marketing de haut niveau.
             </p>
           </div>
@@ -159,8 +160,9 @@ const Footer = () => {
           <div>
             <h4 className="text-[#D4AF37] text-xs font-black tracking-[0.3em] uppercase mb-10">Coordonnées</h4>
             <ul className="space-y-5 text-sm text-gray-400 font-light">
-              <li className="flex items-center"><Phone className="w-4 h-4 mr-4 text-[#D4AF37]" /> [Numéro de téléphone]</li>
-              <li className="flex items-center"><Mail className="w-4 h-4 mr-4 text-[#D4AF37]" /> [Adresse email]</li>
+              <li className="flex items-center"><Phone className="w-4 h-4 mr-4 text-[#D4AF37]" /> : +237 690 567 014</li>
+              <li className="flex items-center"><Phone className="w-4 h-4 mr-4 text-[#D4AF37]" /> : +237 671 894 722</li>
+              <li className="flex items-center"><Mail className="w-4 h-4 mr-4 text-[#D4AF37]" /> info@solutionconsulting.biz</li>
               <li className="flex items-center"><MapPin className="w-4 h-4 mr-4 text-[#D4AF37]" /> Douala, Cameroun</li>
             </ul>
           </div>
@@ -201,6 +203,7 @@ const App: React.FC = () => {
             <Route path="/services" element={<Services />} />
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/why-us" element={<WhyUs />} />
+            <Route path="/audit" element={<Questionnaire />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

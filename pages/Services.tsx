@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Scale, TrendingUp, Users, CheckCircle2, Briefcase, BarChart3, Globe, DollarSign } from 'lucide-react';
+import { Scale, TrendingUp, Users, CheckCircle2, Briefcase, BarChart3, Globe, DollarSign, Building2 } from 'lucide-react';
+import { useSEO } from '../utils/seoHelmet';
 
 const ServiceSection = ({ icon, title, description, services, color, index }: { icon: any, title: string, description: string, services: string[], color: string, index: number }) => (
   <motion.div 
@@ -20,7 +21,7 @@ const ServiceSection = ({ icon, title, description, services, color, index }: { 
           {React.cloneElement(icon as React.ReactElement, { className: `w-12 h-12 ${color === 'gold' ? 'text-[#D4AF37]' : 'text-blue-500'}` })}
         </div>
         <h2 className="text-4xl lg:text-5xl font-serif font-bold text-white mb-8 leading-tight">{title}</h2>
-        <p className="text-gray-500 text-lg leading-relaxed font-light italic">
+        <p className="text-gray-300 text-lg leading-relaxed font-light italic">
           {description}
         </p>
       </div>
@@ -43,6 +44,15 @@ const ServiceSection = ({ icon, title, description, services, color, index }: { 
 );
 
 const Services: React.FC = () => {
+  useSEO({
+    title: "Services Conseil Stratégique, Financement & Marketing | Solutions Consulting",
+    description: "Découvrez nos services : conseil stratégique PME, levée de fonds, gestion marketing 360°, optimisation commerciale et gestion opérationnelle OHADA.",
+    keywords: "services conseil, levée de fonds, marketing digital, gestion commerciale, conseil OHADA, stratégie PME",
+    ogTitle: "Nos Services | Solutions Consulting Sarl",
+    ogDescription: "Cinq sphères d'expertise pour transformer votre entreprise",
+    canonicalUrl: "https://solutionconsulting.biz/#/services"
+  });
+
   return (
     <div className="bg-black min-h-screen pt-24 pb-40">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-blue-900/5 blur-[150px] pointer-events-none"></div>
@@ -123,6 +133,25 @@ const Services: React.FC = () => {
             "Mise en place de systèmes de suivi de performance (CRM)",
             "Formation et encadrement des équipes commerciales",
             "Développement de stratégies de vente et de partenariats"
+          ]}
+        />
+
+        <ServiceSection 
+          index={4}
+          icon={<Building2 />}
+          color="gold"
+          title="Gestion Opérationnelle & Juridique"
+          description="Un accompagnement 360° pour structurer, sécuriser et optimiser votre entreprise. De la constitution juridique à la gestion patrimoniale, nous sommes le socle de votre pérennité."
+          services={[
+            "Création & Constitution de Société (Clé en main)",
+            "Secrétariat Juridique & Conformité OHADA",
+            "Gestion Administrative & Externalisation Back-office",
+            "Audit Organisationnel & Optimisation des Processus",
+            "Gestion Patrimoniale & Protection des Actifs",
+            "Services Financiers & Recherche de Subventions",
+            "Rédaction de Contrats & Compliance",
+            "Formalités Administratives & Fiscales",
+            "Assistance aux appels d'offres & Marchés Publics"
           ]}
         />
       </div>

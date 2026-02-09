@@ -2,10 +2,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, ShieldCheck, Eye, Globe, Users, Building2, TrendingUp, Zap } from 'lucide-react';
+import { useSEO } from '../utils/seoHelmet';
 
 const Methodology: React.FC = () => {
+  useSEO({
+    title: "Représentation d'Entreprises Étrangères | Solutions Consulting Cameroun",
+    description: "Votre porte d'entrée en Afrique Francophone. Portage salarial, recrutement, bureau de représentation et succursale clés en main.",
+    keywords: "représentation entreprise étrangère, expansion Afrique, portage salarial, bureau de représentation, succursale Cameroun",
+    ogTitle: "Représentation & Expansion | Solutions Consulting",
+    ogDescription: "Solutions clés en main pour votre implantation en Afrique",
+    canonicalUrl: "https://solutionconsulting.biz/#/methodology"
+  });
+
   return (
-    <div className="bg-black text-white min-h-screen pt-24 pb-40 relative">
+    <div className="bg-black text-white min-h-screen pt-24 pb-40 relative overflow-x-hidden">
       <div className="absolute top-0 right-0 w-full h-[800px] bg-[#D4AF37]/5 blur-[200px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,7 +30,7 @@ const Methodology: React.FC = () => {
           <h1 className="text-6xl md:text-8xl font-serif font-bold text-white mb-10 tracking-tighter">
             Représentation d'Entreprises <span className="gold-text-gradient italic">Étrangères</span>.
           </h1>
-          <p className="text-2xl text-gray-500 font-light max-w-4xl mx-auto leading-relaxed italic border-x border-[#D4AF37]/20 px-10">
+          <p className="text-2xl text-gray-400 font-medium max-w-4xl mx-auto leading-relaxed italic border-x border-[#D4AF37]/20 px-10">
             Votre porte d'entrée en Afrique Francophone. Vous êtes une entreprise étrangère souhaitant conquérir le marché camerounais ou la zone CEMAC/CEDEAO ? Solutions Consulting Sarl agit comme votre antenne locale.
           </p>
         </div>
@@ -44,20 +54,20 @@ const Methodology: React.FC = () => {
                 </div>
               </div>
               <div className="lg:w-2/3 space-y-8">
-                <p className="text-xl text-gray-300 font-light leading-relaxed">
+                <p className="text-xl text-gray-300 font-medium leading-relaxed">
                   Gérez vos équipes locales sans structure juridique propre au départ. Solutions Consulting Sarl vous permet de recruter et gérer des talents locaux en toute conformité OHADA.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <h4 className="text-[#D4AF37] text-xs font-black tracking-[0.3em] uppercase">Points Forts</h4>
-                    <ul className="space-y-4 text-sm text-gray-500">
+                    <ul className="space-y-4 text-sm text-gray-300">
                       <li className="flex items-center"><ShieldCheck className="w-4 h-4 mr-3 text-[#D4AF37]" /> Conformité légale garantie</li>
                       <li className="flex items-center"><ShieldCheck className="w-4 h-4 mr-3 text-[#D4AF37]" /> Déploiement rapide d'équipes</li>
                     </ul>
                   </div>
                   <div className="space-y-4">
                     <h4 className="text-[#D4AF37] text-xs font-black tracking-[0.3em] uppercase">Avantages</h4>
-                    <p className="text-white text-lg font-light">Réduisez les risques juridiques et concentrez-vous sur votre cœur de métier.</p>
+                    <p className="text-white text-lg font-medium">Réduisez les risques juridiques et concentrez-vous sur votre cœur de métier.</p>
                   </div>
                 </div>
               </div>
@@ -79,13 +89,13 @@ const Methodology: React.FC = () => {
                 </div>
               </div>
               <div className="lg:w-2/3 space-y-8 text-left">
-                <p className="text-xl text-gray-300 font-light leading-relaxed">
+                <p className="text-xl text-gray-300 font-medium leading-relaxed">
                   Nous gérons l'installation physique et administrative de votre marque sur le marché camerounais et CEMAC/CEDEAO.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <h4 className="text-blue-400 text-xs font-black tracking-[0.3em] uppercase">Services Inclus</h4>
-                    <ul className="space-y-4 text-sm text-gray-500">
+                    <ul className="space-y-4 text-sm text-gray-300">
                       <li className="flex items-center"><Zap className="w-4 h-4 mr-3 text-blue-500" /> Enregistrement légal et fiscal</li>
                       <li className="flex items-center"><Zap className="w-4 h-4 mr-3 text-blue-500" /> Localisation de bureaux</li>
                     </ul>
@@ -114,20 +124,20 @@ const Methodology: React.FC = () => {
                 </div>
               </div>
               <div className="lg:w-2/3 space-y-8">
-                <p className="text-xl text-gray-300 font-light leading-relaxed">
+                <p className="text-xl text-gray-300 font-medium leading-relaxed">
                   Analyse en temps réel des opportunités de marché et de la réglementation locale pour adapter votre stratégie.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <h4 className="text-[#D4AF37] text-xs font-black tracking-[0.3em] uppercase">Monitorage</h4>
-                    <ul className="space-y-4 text-sm text-gray-500">
+                    <ul className="space-y-4 text-sm text-gray-300">
                       <li className="flex items-center"><ShieldCheck className="w-4 h-4 mr-3 text-[#D4AF37]" /> Surveillance réglementaire</li>
                       <li className="flex items-center"><ShieldCheck className="w-4 h-4 mr-3 text-[#D4AF37]" /> Analyse des tendances</li>
                     </ul>
                   </div>
                   <div className="space-y-4">
                     <h4 className="text-[#D4AF37] text-xs font-black tracking-[0.3em] uppercase">Rapports</h4>
-                    <p className="text-white text-lg font-light">Rapports périodiques pour une prise de décision optimisée.</p>
+                    <p className="text-white text-lg font-medium">Rapports périodiques pour une prise de décision optimisée.</p>
                   </div>
                 </div>
               </div>
@@ -149,13 +159,13 @@ const Methodology: React.FC = () => {
                 </div>
               </div>
               <div className="lg:w-2/3 space-y-8 text-left">
-                <p className="text-xl text-gray-300 font-light leading-relaxed">
+                <p className="text-xl text-gray-300 font-medium leading-relaxed">
                   Coordination de vos flux logistiques et introduction auprès des réseaux de distribution clés dans la région.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <h4 className="text-blue-400 text-xs font-black tracking-[0.3em] uppercase">Coordination</h4>
-                    <ul className="space-y-4 text-sm text-gray-500">
+                    <ul className="space-y-4 text-sm text-gray-300">
                       <li className="flex items-center"><Zap className="w-4 h-4 mr-3 text-blue-500" /> Gestion de la chaîne logistique</li>
                       <li className="flex items-center"><Zap className="w-4 h-4 mr-3 text-blue-500" /> Négociation distributeurs</li>
                     </ul>
@@ -175,14 +185,14 @@ const Methodology: React.FC = () => {
           <div className="p-20 bg-black hover:bg-[#050505] transition-colors group">
             <Globe className="w-16 h-16 text-[#D4AF37] mb-10 transition-transform group-hover:scale-110" />
             <h4 className="text-2xl font-serif font-bold mb-6 tracking-tight uppercase">Présence Régionale</h4>
-            <p className="text-gray-500 font-light leading-relaxed text-sm italic">
+            <p className="text-gray-300 font-medium leading-relaxed text-sm italic">
               Nous couvrons la zone CEMAC et CEDEAO avec une équipe locale expérimentée et des contacts clés dans tous les secteurs.
             </p>
           </div>
           <div className="p-20 bg-black hover:bg-[#050505] transition-colors group">
             <Briefcase className="w-16 h-16 text-blue-500 mb-10 transition-transform group-hover:scale-110" />
             <h4 className="text-2xl font-serif font-bold mb-6 tracking-tight uppercase">Expertise Métier</h4>
-            <p className="text-gray-500 font-light leading-relaxed text-sm italic">
+            <p className="text-gray-300 font-medium leading-relaxed text-sm italic">
               Nos consultants combinent la compréhension profonde des marchés africains avec l'expérience internationale.
             </p>
           </div>

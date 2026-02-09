@@ -1,0 +1,22 @@
+# robots.txt for Solutions Consulting Sarl
+# Search engine crawling rules
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+
+# Specific rules for Bing
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay to avoid overloading server
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://solutionconsulting.biz/sitemap.xml

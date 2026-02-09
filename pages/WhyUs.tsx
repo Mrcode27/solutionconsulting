@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, ShieldCheck, Zap, Network, Rocket, Star, Diamond, Crown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useSEO } from '../utils/seoHelmet';
 
 const WhyUs: React.FC = () => {
   const advantages = [
@@ -73,7 +74,7 @@ const WhyUs: React.FC = () => {
                 {React.cloneElement(adv.icon as React.ReactElement, { className: 'w-12 h-12 stroke-[1.5]' })}
               </div>
               <h3 className="text-2xl font-serif font-bold text-white mb-6 uppercase tracking-tight group-hover:text-[#D4AF37] transition-colors">{adv.title}</h3>
-              <p className="text-gray-500 leading-relaxed font-light text-sm">{adv.desc}</p>
+              <p className="text-gray-300 leading-relaxed font-light text-sm">{adv.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -86,7 +87,7 @@ const WhyUs: React.FC = () => {
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 blur-[100px] pointer-events-none"></div>
           <h3 className="text-4xl md:text-5xl font-serif font-bold text-white mb-8">Votre Héritage Mérite le Meilleur Strategiste.</h3>
-          <p className="text-gray-400 text-xl mb-12 italic max-w-3xl mx-auto">
+          <p className="text-gray-300 text-xl mb-12 italic max-w-3xl mx-auto">
             "Le succès n'est jamais un accident ; c'est le résultat d'un effort intelligent dirigé par l'expérience."
           </p>
           <Link to="/contact" className="inline-block px-16 py-6 bg-[#D4AF37] text-black font-black text-lg tracking-widest uppercase hover:scale-105 transition-all gold-glow">

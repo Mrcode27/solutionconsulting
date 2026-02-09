@@ -2,8 +2,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Heart, Map, Globe, Shield, Star, Diamond } from 'lucide-react';
+import { useSEO } from '../utils/seoHelmet';
 
 const About: React.FC = () => {
+  useSEO({
+    title: "À Propos de Solutions Consulting Sarl | Mission & Vision Africaine",
+    description: "Découvrez l'histoire de Solutions Consulting Sarl, notre mission souveraine, vision élite 2030 et nos valeurs cardinales d'excellence.",
+    keywords: "about solutions consulting, cabinet conseil Afrique, mission vision expertise, valeurs excellence",
+    ogTitle: "À Propos | Solutions Consulting Sarl",
+    ogDescription: "L'architecture de votre succès - Excellence et innovation en conseil stratégique",
+    canonicalUrl: "https://solutionconsulting.biz/#/about"
+  });
+
   return (
     <div className="bg-black text-white min-h-screen pt-24 overflow-hidden relative">
       {/* Background Orbs */}
@@ -44,7 +54,7 @@ const About: React.FC = () => {
               <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[#D4AF37] to-transparent"></div>
               <Target className="w-14 h-14 text-[#D4AF37] mb-8" />
               <h2 className="text-3xl font-serif font-bold mb-6">Mission Souveraine</h2>
-              <p className="text-gray-400 text-lg leading-relaxed font-light">
+              <p className="text-gray-300 text-lg leading-relaxed font-light">
                 Nous orchestrons la levée des verrous structurels — juridiques, fiscaux et commerciaux — pour permettre aux champions économiques d'Afrique centrale et de l'ouest d'atteindre leur pleine puissance.
               </p>
             </motion.div>
@@ -59,7 +69,7 @@ const About: React.FC = () => {
               <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-[#1e3a8a] to-transparent"></div>
               <Eye className="w-14 h-14 text-blue-500 mb-8" />
               <h2 className="text-3xl font-serif font-bold mb-6">Vision Elite 2030</h2>
-              <p className="text-gray-400 text-lg leading-relaxed font-light">
+              <p className="text-gray-300 text-lg leading-relaxed font-light">
                 Redéfinir le conseil en Afrique en devenant la passerelle incontournable entre les capitaux internationaux et les opportunités locales de haute voltige.
               </p>
             </motion.div>
@@ -90,7 +100,7 @@ const About: React.FC = () => {
                   {React.cloneElement(val.icon as React.ReactElement, { className: 'w-8 h-8' })}
                 </div>
                 <h3 className="text-xl font-bold mb-4 tracking-tight uppercase text-white">{val.title}</h3>
-                <p className="text-gray-500 text-sm font-light leading-relaxed">{val.desc}</p>
+                <p className="text-gray-300 text-sm font-light leading-relaxed">{val.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -126,8 +136,8 @@ const About: React.FC = () => {
                 ></motion.div>
                 <div className="text-6xl font-serif font-black text-white/10 absolute tracking-[0.5em]">AFRICA</div>
                 <div className="relative z-10 text-center">
-                   <div className="text-8xl md:text-[10rem] font-serif font-black gold-text-gradient opacity-80">精英</div>
-                   <p className="text-[#D4AF37] tracking-[0.8em] font-black uppercase text-xs mt-4">Pôle Global</p>
+                   {/* <div className="text-8xl md:text-[10rem] font-serif font-black gold-text-gradient opacity-80">精英</div> */}
+                   <br /><br /><p className="text-[#D4AF37] tracking-[0.8em] font-black uppercase text-xs mt-4">Pôle Global</p>
                 </div>
               </div>
             </div>

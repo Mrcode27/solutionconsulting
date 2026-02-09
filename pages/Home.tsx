@@ -4,9 +4,10 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { 
   ChevronRight, ShieldCheck, Zap, Globe, BarChart3, 
   Users, Scale, Star, Diamond, Quote, Award, 
-  TrendingUp, Briefcase, MousePointer2 
+  TrendingUp, Briefcase, MousePointer2, Building2 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useSEO } from '../utils/seoHelmet';
 
 const heroImages = [
   "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920", // Modern Office
@@ -15,10 +16,10 @@ const heroImages = [
 ];
 
 const partnerLogos = [
-  { name: "Finance Global", url: "./images/partner1.jpeg" },
-  { name: "Empire Corp", url: "./images/partner2.jpeg" },
-  { name: "Stratégie Plus", url: "./images/partner3.jpeg" },
-  { name: "Luxury Invest", url: "./images/partner4.jpeg" },
+  { name: "Finance Global", url: "/images/partner1.jpeg" },
+  { name: "Empire Corp", url: "/images/partner2.jpeg" },
+  { name: "Stratégie Plus", url: "/images/partner3.jpeg" },
+  { name: "Luxury Invest", url: "/images/partner4.jpeg" },
   
 ];
 
@@ -27,19 +28,19 @@ const testimonials = [
     quote: "Solutions Consulting a transformé notre vision en une réalité financière. Leur maîtrise du droit OHADA est inégalée.",
     author: "M. Bakary T.",
     role: "CEO, Panafrican Energy Group",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+    image: "../images/testimonial2.jpeg"
   },
   {
     quote: "Un accompagnement d'orfèvre pour notre levée de fonds. Discrétion, précision et résultats au-delà des attentes.",
     author: "Elena R.",
     role: "Directrice d'Investissement, Global Bridge",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+    image: "../images/testimonial1.jpeg"
   },
   {
     quote: "La force de vente externalisée par Solutions Consulting nous a permis de doubler nos parts de marché en 18 mois.",
     author: "Jean-Pierre N.",
     role: "Directeur Commercial, CFAO Retail",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200"
+    image: "../images/testimonial3.jpeg"
   }
 ];
 
@@ -58,7 +59,7 @@ const ImpactFigure = ({ number, label, suffix = "" }: { number: string, label: s
 );
 
 const PartnersSlider = () => (
-  <div className="py-24 bg-black overflow-hidden border-y border-white/5 relative">
+  <div className="py-24  overflow-hidden border-y border-white/5 relative">
     <div className="flex relative">
       <motion.div 
         className="flex space-x-24 items-center whitespace-nowrap"
@@ -70,7 +71,7 @@ const PartnersSlider = () => (
             <img 
               src={partner.url} 
               alt={partner.name}
-              className="h-12 md:h-16 w-auto opacity-30 grayscale brightness-200 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+              className="h-24 w-auto opacity-100 transition-all duration-700 md:h-16 md:opacity-30 md:grayscale md:brightness-200 md:group-hover:opacity-100 md:group-hover:grayscale-0 md:group-hover:scale-110"
             />
           </div>
         ))}
@@ -85,6 +86,15 @@ const Home: React.FC = () => {
   const [currentImg, setCurrentImg] = useState(0);
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+
+  useSEO({
+    title: "Solutions Consulting Sarl | Conseil Stratégique & Financement PME Cameroun",
+    description: "Accompagnement stratégique, levée de fonds et développement commercial pour PME en Afrique. Expert OHADA depuis 2015.",
+    keywords: "conseil PME, levée de fonds, consultant stratégique, financement entreprise, développement commercial, OHADA",
+    ogTitle: "Solutions Consulting Sarl | Transformez Votre PME",
+    ogDescription: "Cabinet d'expertise pour propulser votre entreprise vers de nouveaux horizons",
+    canonicalUrl: "https://solutionconsulting.biz/"
+  });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -124,7 +134,7 @@ const Home: React.FC = () => {
           <div className="w-[1px] h-16 bg-gradient-to-b from-[#D4AF37] to-transparent"></div>
         </motion.div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32">
           <div className="max-w-5xl">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -149,7 +159,7 @@ const Home: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 2, delay: 1.8 }}
-              className="text-lg md:text-2xl text-gray-300 mb-14 leading-relaxed max-w-4xl font-light"
+              className="text-lg md:text-2xl text-gray-300 mb-14 leading-relaxed max-w-4xl font-medium"
             >
               Votre partenaire stratégique pour la croissance au Cameroun et en Afrique Francophone. Solutions Consulting Sarl est bien plus qu'un cabinet de conseil. Nous sommes le moteur de votre développement. De l'accompagnement stratégique à la levée de fonds, en passant par l'externalisation de vos forces commerciales et marketing, nous transformons vos défis en opportunités concrètes.
             </motion.p>
@@ -173,6 +183,18 @@ const Home: React.FC = () => {
                 <div className="w-0 group-hover:w-6 h-[1px] bg-[#D4AF37] ml-0 group-hover:ml-4 transition-all"></div>
               </Link>
             </motion.div>
+            {/* Prominent Audit CTA */}
+            <div className="mt-12">
+              <div className="bg-[#0b0b0b] border border-white/5 p-8 rounded-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div>
+                  <h3 className="text-2xl font-serif font-bold text-white">Diagnostic Stratégique — Audit Performance 360°</h3>
+                  <p className="text-gray-400 mt-2">Évaluation, benchmarking et plan d'action personnalisé en 5 minutes. Confidentialité garantie.</p>
+                </div>
+                <div className="flex-shrink-0">
+                  <Link to="/audit" className="px-8 py-4 bg-[#D4AF37] text-black font-bold">Commencer l'audit</Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -204,9 +226,9 @@ const Home: React.FC = () => {
               <div className="absolute -bottom-10 -right-10 w-40 h-40 border-r-2 border-b-2 border-[#D4AF37]/20 group-hover:border-[#D4AF37]/50 transition-all duration-1000"></div>
               <div className="overflow-hidden rounded-sm sapphire-glow">
                 <img 
-                  src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1200" 
+                  src="../images/board.jpg" 
                   alt="Executive Boardroom" 
-                  className="w-full grayscale hover:grayscale-0 scale-110 hover:scale-100 transition-all duration-[2s] object-cover h-[600px]"
+                  className="w-full md:grayscale md:hover:grayscale-0 scale-110 hover:scale-100 transition-all duration-[2s] object-cover h-[600px]"
                 />
               </div>
             </motion.div>
@@ -222,7 +244,7 @@ const Home: React.FC = () => {
                 L'Expansion <br /> 
                 <span className="italic gold-text-gradient">Sans Compromis</span>.
               </h2>
-              <p className="text-gray-400 text-xl leading-relaxed font-light">
+              <p className="text-gray-300 text-xl leading-relaxed font-medium">
                 Solutions Consulting Sarl fusionne la rigueur analytique occidentale à la fluidité des marchés africains. Nous ne conseillons pas seulement ; nous bâtissons les fondations de votre souveraineté économique.
               </p>
               
@@ -233,7 +255,7 @@ const Home: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-bold text-xl mb-2 tracking-tight">Standard de Gouvernance Elite</h4>
-                    <p className="text-gray-500 text-sm font-light">Audit de conformité OHADA et structuration offshore pour une optimisation optimale.</p>
+                    <p className="text-gray-300 text-sm font-medium">Audit de conformité OHADA et structuration offshore pour une optimisation optimale.</p>
                   </div>
                 </div>
                 <div className="flex items-start group">
@@ -242,7 +264,7 @@ const Home: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="text-white font-bold text-xl mb-2 tracking-tight">Intelligence Diplomatique</h4>
-                    <p className="text-gray-500 text-sm font-light">Accès privilégié aux cercles décisionnels et aux régulateurs régionaux (CEMAC/UEMOA).</p>
+                    <p className="text-gray-300 text-sm font-medium">Accès privilégié aux cercles décisionnels et aux régulateurs régionaux (CEMAC/UEMOA).</p>
                   </div>
                 </div>
               </div>
@@ -275,7 +297,7 @@ const Home: React.FC = () => {
               >
                 <div className="text-4xl font-serif italic text-white/10 group-hover:text-[#D4AF37]/20 mb-6 transition-colors">{p.step}</div>
                 <h3 className="text-xl font-bold text-white mb-6 group-hover:text-[#D4AF37] transition-colors">{p.title}</h3>
-                <p className="text-gray-500 text-sm font-light leading-relaxed">{p.desc}</p>
+                <p className="text-gray-300 text-sm font-medium leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -285,7 +307,7 @@ const Home: React.FC = () => {
       {/* Luxury Testimonials Section */}
       <section className="py-40 bg-[#080808] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-end justify-between mb-24 gap-12">
+          <div className="flex flex-col lg:flex-row items-end justify-between mb-10 lg:mb-24 gap-12">
             <div className="max-w-2xl">
               <span className="text-[#D4AF37] font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Paroles d'Élite</span>
               <h2 className="text-5xl md:text-6xl font-serif font-bold text-white leading-tight">Ils façonnent l'avenir avec nous.</h2>
@@ -311,9 +333,9 @@ const Home: React.FC = () => {
                 className="p-12 bg-black/50 border border-white/5 relative group hover:bg-[#0a0a10] transition-all duration-700"
               >
                 <Quote className="absolute top-10 right-10 w-12 h-12 text-[#D4AF37]/10 group-hover:text-[#D4AF37]/20 transition-all" />
-                <p className="text-gray-300 text-lg font-light leading-relaxed italic mb-12 relative z-10">"{t.quote}"</p>
+                <p className="text-gray-300 text-lg font-medium leading-relaxed italic mb-12 relative z-10">"{t.quote}"</p>
                 <div className="flex items-center">
-                  <img src={t.image} alt={t.author} className="w-14 h-14 rounded-full grayscale group-hover:grayscale-0 transition-all mr-6 border border-white/10" />
+                  <img src={t.image} alt={t.author} className="w-14 h-14 rounded-full md:grayscale md:group-hover:grayscale-0 transition-all mr-6 border border-white/10" />
                   <div>
                     <h5 className="text-white font-bold">{t.author}</h5>
                     <p className="text-[#D4AF37] text-[10px] font-black tracking-widest uppercase mt-1">{t.role}</p>
@@ -334,7 +356,7 @@ const Home: React.FC = () => {
             <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-1 border border-white/5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-1 border border-white/5">
             {[
               {
                 icon: <Scale className="w-10 h-10 text-[#D4AF37]" />,
@@ -350,6 +372,11 @@ const Home: React.FC = () => {
                 icon: <Users className="w-10 h-10 text-[#D4AF37]" />,
                 title: "Solutions Marketing",
                 desc: "Branding de prestige et positionnement digital d'élite."
+              },
+              {
+                icon: <Building2 className="w-10 h-10 text-[#D4AF37]" />,
+                title: "Gestion Opérationnelle",
+                desc: "Constitution, audit, conformité et gestion patrimoniale."
               }
             ].map((pillar, idx) => (
               <motion.div
@@ -361,7 +388,7 @@ const Home: React.FC = () => {
                   {pillar.icon}
                 </div>
                 <h3 className="text-2xl font-serif font-bold text-white mb-6 tracking-tight">{pillar.title}</h3>
-                <p className="text-gray-500 font-light leading-relaxed mb-10 text-sm">{pillar.desc}</p>
+                <p className="text-gray-300 font-medium leading-relaxed mb-10 text-sm">{pillar.desc}</p>
                 <Link to="/services" className="text-[10px] font-black tracking-[0.4em] uppercase text-[#D4AF37] border-b border-[#D4AF37]/30 pb-2 hover:border-[#D4AF37] transition-all">
                   Expertise →
                 </Link>
@@ -385,7 +412,7 @@ const Home: React.FC = () => {
               Le Prochain Chapitre de <br />
               <span className="gold-text-gradient italic">Votre Empire</span>.
             </h2>
-            <p className="text-xl md:text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed italic">
+            <p className="text-xl md:text-2xl text-gray-400 font-medium max-w-3xl mx-auto leading-relaxed italic">
               "La fortune sourit aux audacieux, mais elle se construit avec les stratèges."
             </p>
             <div className="pt-10">
