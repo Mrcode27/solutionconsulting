@@ -123,7 +123,7 @@ const Questionnaire: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-gray-200 py-20 px-4 pt-32">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-serif font-bold text-white mb-4">Diagnostic Stratégique — Audit Performance 360°</h1>
+        <h1 className="text-4xl font-serif font-bold text-white mb-4">Diagnostic Stratégique et Performance 360°</h1>
         <p className="text-gray-400 mb-8">Formulaire d'auto-évaluation rapide pour dirigeants. Durée estimée: 5–7 minutes. Vos réponses sont anonymisées si vous le souhaitez.</p>
 
         {!submitted ? (

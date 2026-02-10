@@ -187,11 +187,11 @@ const Home: React.FC = () => {
             <div className="mt-12">
               <div className="bg-[#0b0b0b] border border-white/5 p-8 rounded-sm flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
-                  <h3 className="text-2xl font-serif font-bold text-white">Diagnostic Stratégique — Audit Performance 360°</h3>
+                  <h3 className="text-2xl font-serif font-bold text-white">Diagnostic Stratégique et Performance 360°</h3>
                   <p className="text-gray-400 mt-2">Évaluation, benchmarking et plan d'action personnalisé en 5 minutes. Confidentialité garantie.</p>
                 </div>
                 <div className="flex-shrink-0">
-                  <Link to="/audit" className="px-8 py-4 bg-[#D4AF37] text-black font-bold">Commencer l'audit</Link>
+                  <Link to="/Diagnostic" className="px-8 py-4 bg-[#D4AF37] text-black font-bold">Diagnostic gratuit</Link>
                 </div>
               </div>
             </div>
