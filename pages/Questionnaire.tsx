@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSEO } from '../utils/seoHelmet';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Check, AlertTriangle, X } from 'lucide-react';
 
 // ------------------------------------------------------------
 // Translation dictionaries
@@ -553,6 +555,7 @@ const Questionnaire: React.FC = () => {
   const [sending, setSending] = useState(false);
   const [consentAccepted, setConsentAccepted] = useState(false);
   const [errors, setErrors] = useState<Record<string, boolean>>({});
+  const [notification, setNotification] = useState<{ type: 'success' | 'error', message: string } | null>(null);
 
   const t = translations[answers.language as keyof typeof translations];
 
@@ -659,23 +662,41 @@ const Questionnaire: React.FC = () => {
     }
     setSending(true);
     const payload = {
-      to: answers.email,
-      subject: answers.language === 'fr'
-        ? `Rapport DSP360 — ${answers.company_name || 'Diagnostic'}`
-        : `DSP360 Report — ${answers.company_name || 'Diagnosis'}`,
-      message: answers.language === 'fr'
-        ? `Score : ${score}% (${summary?.totalScore}/${summary?.maxScore})\nRecommandations :\n${summary?.recommendations.join('\n')}`
-        : `Score : ${score}% (${summary?.totalScore}/${summary?.maxScore})\nRecommendations :\n${summary?.recommendations.join('\n')}`,
+      company_name: answers.company_name,
+      email: answers.email,
+      phone: answers.phone,
+      legal_form: answers.legal_form,
+      sector: answers.sector,
+      employees_size: answers.employees_size,
+      respondent_function: answers.respondent_function,
+      score: score,
+      totalScore: summary?.totalScore,
+      maxScore: summary?.maxScore,
+      recommendations: summary?.recommendations || [],
+      answers: answers,
     };
     try {
-      await fetch('/api/send_mail.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-      alert(answers.language === 'fr' 
-        ? 'Rapport envoyé (vérifiez vos spams).' 
-        : 'Report sent (check your spam).');
+      const response = await fetch('https://solutionconsulting.biz/api/send_diagnosis.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+      const result = await response.json();
+      
+      if (result.success) {
+        setNotification({
+          type: 'success',
+          message: answers.language === 'fr' 
+            ? 'Rapport envoyé avec succès. Veuillez vérifier votre boîte de réception (et vos spams).' 
+            : 'Report sent successfully. Please check your inbox (and spam folder).'
+        });
+      } else {
+        setNotification({
+          type: 'error',
+          message: answers.language === 'fr' ? 'Erreur : ' + result.message : 'Error: ' + result.message
+        });
+      }
     } catch {
-      alert(answers.language === 'fr' 
-        ? 'Erreur réseau.' 
-        : 'Network error.');
+      setNotification({
+        type: 'error',
+        message: answers.language === 'fr' ? 'Une erreur réseau est survenue.' : 'A network error occurred.'
+      });
     } finally {
       setSending(false);
     }
@@ -767,6 +788,57 @@ const Questionnaire: React.FC = () => {
               <button onClick={() => { setSubmitted(false); setScore(null); }} className="text-xs text-gray-500 ml-auto">{t.modify}</button>
             </div>
           </div>
+
+          {/* Notification Modal */}
+          <AnimatePresence>
+            {notification && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/80 backdrop-blur-sm"
+                onClick={() => setNotification(null)}
+              >
+                <motion.div
+                  initial={{ scale: 0.9, y: 20 }}
+                  animate={{ scale: 1, y: 0 }}
+                  exit={{ scale: 0.9, y: 20 }}
+                  className="bg-[#0a0a0a] border border-[#D4AF37]/30 p-8 max-w-md w-full relative shadow-[0_0_50px_rgba(212,175,55,0.1)]"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button 
+                    onClick={() => setNotification(null)}
+                    className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                  
+                  <div className="flex flex-col items-center text-center">
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 border ${notification.type === 'success' ? 'bg-[#D4AF37]/10 border-[#D4AF37]/30 text-[#D4AF37]' : 'bg-red-900/10 border-red-500/30 text-red-500'}`}>
+                      {notification.type === 'success' ? <Check className="w-8 h-8" /> : <AlertTriangle className="w-8 h-8" />}
+                    </div>
+                    
+                    <h3 className={`text-2xl font-serif font-bold mb-4 ${notification.type === 'success' ? 'text-white' : 'text-red-500'}`}>
+                      {notification.type === 'success' 
+                        ? (answers.language === 'fr' ? 'Succès' : 'Success') 
+                        : (answers.language === 'fr' ? 'Erreur' : 'Error')}
+                    </h3>
+                    
+                    <p className="text-gray-300 leading-relaxed mb-8">
+                      {notification.message}
+                    </p>
+                    
+                    <button
+                      onClick={() => setNotification(null)}
+                      className="px-8 py-3 bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-xs hover:bg-white transition-colors"
+                    >
+                      {answers.language === 'fr' ? 'Fermer' : 'Close'}
+                    </button>
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     );
